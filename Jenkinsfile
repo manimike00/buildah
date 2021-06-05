@@ -5,7 +5,8 @@ pipeline {
            steps {
                script {
                    sh 'buildah version'
-                   sh 'buildsh --help'
+                   sh 'buildah bud -t fedora-httpd'
+                   sh 'buildah --help'
                    sh 'ls -la'
                }
            }
