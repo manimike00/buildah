@@ -12,7 +12,6 @@ pipeline {
            steps {
                script {
                    awsCodeBuild(
-                       credentialsType: "jenkins"
                        projectName: "dev-demo",
                        region: "ap-south-1"
                    )
