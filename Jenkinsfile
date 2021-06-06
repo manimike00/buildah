@@ -12,7 +12,8 @@ pipeline {
            steps {
                script {
                    awsCodeBuild(
-                       projectName: "dev-demo"
+                       projectName: "dev-demo",
+                       region: "ap-south-1"
                    )
                }
            }
