@@ -13,7 +13,9 @@ pipeline {
                script {
                    awsCodeBuild(
                        projectName: "dev-demo",
-                       region: "ap-south-1"
+                       credentialsType: 'keys',
+                       region: "ap-south-1",
+                       sourceControlType: 'jenkins'
                    )
                }
            }
