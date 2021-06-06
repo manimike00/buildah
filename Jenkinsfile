@@ -15,7 +15,7 @@ pipeline {
                        projectName: "dev-demo",
                        credentialsType: 'keys',
                        region: "ap-south-1",
-                       sourceControlType: 'jenkins'
+                       sourceControlType: 's3'
                    )
                }
            }

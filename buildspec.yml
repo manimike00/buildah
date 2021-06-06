@@ -1,0 +1,33 @@
+version: 0.2
+
+env:
+
+  shell: bash
+
+  variables:
+     SERVICE: $SERVICE
+     REPOSITORY_URI: $REPOSITORY_URI
+  
+phases:
+  install:
+    commands:
+      - echo "Phases - Install"
+  pre_build:
+    commands:
+      - echo "Phases - Pre-build"
+  build:
+    commands:
+      - echo "Phases - Build"
+  post_build:
+    commands:
+      - echo "Phases - Post-Build"
+#artifacts:
+  #files:
+    # - location
+    # - location
+  #name: $(date +%Y-%m-%d)
+  #discard-paths: yes
+  #base-directory: location
+#cache:
+  #paths:
+    # - paths
