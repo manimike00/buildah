@@ -1,8 +1,9 @@
 FROM alpine:3.13
 
 # Install apache
-RUN apk add httpd
+RUN apk add curl
 # Expose the default httpd port 80
 EXPOSE 80
 # Run httpd
-CMD ["/usr/sbin/httpd", "-DFOREGROUND"]
+ENTRYPOINT [ "sleep" ]
+CMD ["300"]
