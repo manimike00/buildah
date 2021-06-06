@@ -1,7 +1,7 @@
-# CoreOS Base
-FROM fedora:latest
-# Install httpd
-RUN echo "Installing httpd"; yum -y install httpd
+FROM apline:3.13
+
+# Install apache
+RUN apk add httpd
 # Expose the default httpd port 80
 EXPOSE 80
 # Run httpd

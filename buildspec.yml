@@ -17,7 +17,7 @@ phases:
       - echo "Phases - Pre-build"
   build:
     commands:
-      - echo "Phases - Build"
+      - docker build -t demo .
   post_build:
     commands:
       - echo "Phases - Post-Build"
