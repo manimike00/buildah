@@ -1,4 +1,4 @@
-FROM apline:3.13
+FROM alpine:3.13
 
 # Install apache
 RUN apk add httpd
