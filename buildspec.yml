@@ -5,29 +5,25 @@ env:
   shell: bash
 
   variables:
-     SERVICE: $SERVICE
      REPOSITORY_URI: $REPOSITORY_URI
+     SERVICE: $SERVICE
+     ENV: $ENV
   
 phases:
-  install:
-    commands:
-      - echo "Phases - Install"
   pre_build:
     commands:
-      - echo "Phases - Pre-build"
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $REPOSITORY_URI
   build:
     commands:
-      - docker build -t demo .
+      - docker build -t $REPOSITORY_URI/$SERVICE:$ENV-$CODEBUILD_BUILD_NUMBER .
+      - docker tag $REPOSITORY_URI/$SERVICE:$ENV-$CODEBUILD_BUILD_NUMBER $REPOSITORY_URI/$SERVICE:$ENV-latest
   post_build:
     commands:
-      - echo "Phases - Post-Build"
+      - docker push $REPOSITORY_URI/$SERVICE:$ENV-$CODEBUILD_BUILD_NUMBER
+      - docker push $REPOSITORY_URI/$SERVICE:$ENV-latest
 #artifacts:
   #files:
     # - location
-    # - location
-  #name: $(date +%Y-%m-%d)
-  #discard-paths: yes
-  #base-directory: location
 #cache:
   #paths:
     # - paths
