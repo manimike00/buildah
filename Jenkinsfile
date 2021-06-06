@@ -1,13 +1,19 @@
 pipeline {
    agent any
    stages {
-       stage('Build') {
+       stage('code') {
            steps {
                script {
-                   sh 'buildah version'
-                   sh 'buildah bud -t fedora-httpd'
-                   sh 'buildah --help'
                    sh 'ls -la'
+               }
+           }
+       }
+       stage('build') {
+           steps {
+               script {
+                   awsCodeBuild(
+                       projectName: "dev-demo"
+                   )
                }
            }
        }
