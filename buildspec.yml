@@ -28,6 +28,7 @@ phases:
     commands:
       - docker push $REPOSITORY_URI/$SERVICE:$ENV-$CODEBUILD_BUILD_NUMBER
       - docker push $REPOSITORY_URI/$SERVICE:$ENV-latest
-# artifacts:
-#   files:
-#     - appspec.yml
+artifacts:
+  files:
+    - create-deployment.json
+    - appspec.yaml
