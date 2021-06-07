@@ -27,7 +27,7 @@ pipeline {
                  applicationName: 'AppECS-dev-zikzuk-cluster-dev-nginx', 
                  deploymentGroupAppspec: true, 
                  deploymentGroupName: 'DgpECS-dev-zikzuk-cluster-dev-nginx',    //PROJECT_NAME
-                 deploymentMethod: 'deploy', 
+                 deploymentMethod: 'ecs', 
                  includes: '**', 
                  proxyHost: '', 
                  proxyPort: 0, 
