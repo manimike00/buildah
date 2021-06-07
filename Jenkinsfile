@@ -32,7 +32,7 @@ pipeline {
                  proxyHost: '', 
                  proxyPort: 0, 
                  region: 'ap-south-1', 
-                 s3bucket: 'zikzuk-condebuild', 
+                 s3bucket: 'zikzuk-codebuild', 
                  s3prefix: 'demo',    //PROJECT_NAME
                  waitForCompletion: false]
                )
