@@ -1,9 +1,9 @@
-FROM alpine:3.13
+FROM nginx:stable-alpine
 
 # Install apache
-RUN apk add curl
+# RUN apk add curl
 # Expose the default httpd port 80
-EXPOSE 80
+# EXPOSE 80
 # Run httpd
-ENTRYPOINT [ "sleep" ]
-CMD ["300"]
+# ENTRYPOINT [ "sleep" ]
+# CMD ["300"]
