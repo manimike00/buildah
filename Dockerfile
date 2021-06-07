@@ -1,4 +1,4 @@
-FROM nginx:stable-alpine
+FROM 949953328794.dkr.ecr.ap-south-1.amazonaws.com/nginx:stable-alpine
 
 # Install apache
 # RUN apk add curl
