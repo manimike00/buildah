@@ -1,0 +1,9 @@
+version: 0.0
+Resources:
+  - TargetService:
+      Type: AWS::ECS::Service
+      Properties:
+        TaskDefinition: "arn:aws:ecs:ap-south-1:949953328794:task-definition/dev-nginx:latest"
+        LoadBalancerInfo:
+          ContainerName: "dev-nginx"
+          ContainerPort: 80
