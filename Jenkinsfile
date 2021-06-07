@@ -5,6 +5,7 @@ pipeline {
            steps {
                script {
                    sh 'ls -la'
+                   sh 'cp appspec.yaml appspec.DgpECS-dev-zikzuk-cluster-dev-nginx.yml'
                }
            }
        }
