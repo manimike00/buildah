@@ -22,7 +22,6 @@ pipeline {
        }
        stage('deploy') {
            steps {
-               script {
                    AWSCodeDeployPublisher(
                        applicationName: "AppECS-dev-zikzuk-cluster-dev-nginx",
                        deploymentGroupName: 'DgpECS-dev-zikzuk-cluster-dev-nginx',
@@ -30,7 +29,6 @@ pipeline {
                        deploymentConfig: 'create-deployment.json',
                        deploymentGroupAppspec: 'appspec.yaml'
                    )
-               }
            }
        }
    }
