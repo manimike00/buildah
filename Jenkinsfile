@@ -23,11 +23,12 @@ pipeline {
        stage('deploy') {
            steps {
                script {
-                   awsCodeBuild(
-                       projectName: "dev-demo",
-                       credentialsType: 'keys',
+                   AWSCodeDeployPublisher(
+                       applicationName: "AppECS-dev-zikzuk-cluster-dev-nginx",
+                       deploymentGroupName: 'DgpECS-dev-zikzuk-cluster-dev-nginx',
                        region: "ap-south-1",
-                       sourceControlType: 'jenkins'
+                       deploymentConfig: 'create-deployment.json',
+                       deploymentGroupAppspec: 'appspec.yaml'
                    )
                }
            }
