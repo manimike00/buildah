@@ -23,6 +23,7 @@ phases:
       - zip appspec.zip appspec.yaml
       - aws s3 cp appspec.zip s3://zikzuk-codebuild/appspec.zip
       - aws s3 cp appspec.yaml s3://zikzuk-codebuild/appspec.yaml
+      - aws s3 cp create-deployment.json s3://zikzuk-codebuild/create-deployment.json
   post_build:
     commands:
       - docker push $REPOSITORY_URI/$SERVICE:$ENV-$CODEBUILD_BUILD_NUMBER
