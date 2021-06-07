@@ -19,9 +19,10 @@ phases:
       - docker tag $REPOSITORY_URI/$SERVICE:$ENV-$CODEBUILD_BUILD_NUMBER $REPOSITORY_URI/$SERVICE:$ENV-latest
       - sed -i s/latest/$CODEBUILD_BUILD_NUMBER/g task-definition.json
       - REVISION=$(aws ecs register-task-definition --cli-input-json file://task-definition.json | grep -i revision | awk "{print $2}" | cut -f2 -d":" | sed 's/,//g' | sed 's/ //g')
-      - sed -i s/latest/$REVISION/g appspec.yml
-      - zip appspec.zip appspec.yml
+      - sed -i s/latest/$REVISION/g appspec.yaml
+      - zip appspec.zip appspec.yaml
       - aws s3 cp appspec.zip s3://zikzuk-codebuild/appspec.zip
+      - aws s3 cp appspec.yaml s3://zikzuk-codebuild/appspec.yaml
   post_build:
     commands:
       - docker push $REPOSITORY_URI/$SERVICE:$ENV-$CODEBUILD_BUILD_NUMBER

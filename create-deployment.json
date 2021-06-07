@@ -1,0 +1,12 @@
+{
+    "applicationName": "AppECS-dev-zikzuk-cluster-dev-nginx",
+    "deploymentGroupName": "DgpECS-dev-zikzuk-cluster-dev-nginx",
+    "revision": {
+        "revisionType": "S3",
+        "s3Location": {
+            "bucket": "zikzuk-codebuild",
+            "key": "appspec.yaml",
+            "bundleType": "YAML"
+        }
+    }
+}
