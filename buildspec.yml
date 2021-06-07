@@ -21,9 +21,9 @@ phases:
     commands:
       - docker push $REPOSITORY_URI/$SERVICE:$ENV-$CODEBUILD_BUILD_NUMBER
       - docker push $REPOSITORY_URI/$SERVICE:$ENV-latest
-#artifacts:
-  #files:
-    # - location
+artifacts:
+  files:
+    - buildspec.yml
 #cache:
   #paths:
     # - paths
