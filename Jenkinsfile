@@ -22,13 +22,19 @@ pipeline {
        }
        stage('deploy') {
            steps {
-                   AWSCodeDeployPublisher(
-                       applicationName: "AppECS-dev-zikzuk-cluster-dev-nginx",
-                       deploymentGroupName: 'DgpECS-dev-zikzuk-cluster-dev-nginx',
-                       region: "ap-south-1",
-                       deploymentConfig: 'create-deployment.json',
-                       deploymentGroupAppspec: 'appspec.yaml'
-                   )
+               step([$class: 'AWSCodeDeployPublisher', 
+                 applicationName: 'AppECS-dev-zikzuk-cluster-dev-nginx', 
+                 deploymentGroupAppspec: true, 
+                 deploymentGroupName: 'DgpECS-dev-zikzuk-cluster-dev-nginx',    //PROJECT_NAME
+                 deploymentMethod: 'deploy', 
+                 includes: '**', 
+                 proxyHost: '', 
+                 proxyPort: 0, 
+                 region: 'ap-south-1', 
+                 s3bucket: 'zikzuk-condebuild', 
+                 s3prefix: 'demo',    //PROJECT_NAME
+                 waitForCompletion: false]
+               )
            }
        }
    }
